@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection JSON Lab</title>
+</head>
+<body>
+    <h1>Lab Question 2 - JSON Data Display</h1>
+    <p>Sila buka Inspect Console (F12) untuk melihat jawapan.</p>
+
+    <script>
+        fetch('books.json')
+            .then(response => response.json())
+            .then(data => {
+                const books = data.books;
+
+             
+                console.log("(a) Title of the first book:", books[0].title);
+
+                console.log("(b) Author of the second book:", books[1].author);
+
+                console.log("(c) Genres of all books:");
+                books.forEach((book, index) => {
+                    console.log(`- ${book.title}: ${book.genres.join(", ")}`);
+                });
+            })
+            .catch(error => console.error("Error loading JSON:", error));
+    </script>
+</body>
+</html>
